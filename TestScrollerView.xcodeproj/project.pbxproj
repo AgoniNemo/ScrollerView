@@ -15,6 +15,11 @@
 		BAECD3F11C414DD4001E3D0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAECD3EF1C414DD4001E3D0E /* LaunchScreen.storyboard */; };
 		BAECD3FC1C414DD4001E3D0E /* TestScrollerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAECD3FB1C414DD4001E3D0E /* TestScrollerViewTests.m */; };
 		BAECD4071C414DD4001E3D0E /* TestScrollerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAECD4061C414DD4001E3D0E /* TestScrollerViewUITests.m */; };
+		BAF356191C773413007B560C /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF356181C773413007B560C /* TestController.m */; };
+		BAF3561D1C77394D007B560C /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF3561C1C77394D007B560C /* UIView+Extension.m */; };
+		BAF356251C7744A1007B560C /* NemoScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF356201C7744A1007B560C /* NemoScrollerView.m */; };
+		BAF356261C7744A1007B560C /* XZCScrollerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF356221C7744A1007B560C /* XZCScrollerButton.m */; };
+		BAF356271C7744A1007B560C /* XZCScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF356241C7744A1007B560C /* XZCScrollView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +56,16 @@
 		BAECD4021C414DD4001E3D0E /* TestScrollerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestScrollerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAECD4061C414DD4001E3D0E /* TestScrollerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestScrollerViewUITests.m; sourceTree = "<group>"; };
 		BAECD4081C414DD4001E3D0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAF356171C773413007B560C /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
+		BAF356181C773413007B560C /* TestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
+		BAF3561B1C77394D007B560C /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		BAF3561C1C77394D007B560C /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		BAF3561F1C7744A1007B560C /* NemoScrollerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NemoScrollerView.h; sourceTree = "<group>"; };
+		BAF356201C7744A1007B560C /* NemoScrollerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NemoScrollerView.m; sourceTree = "<group>"; };
+		BAF356211C7744A1007B560C /* XZCScrollerButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZCScrollerButton.h; sourceTree = "<group>"; };
+		BAF356221C7744A1007B560C /* XZCScrollerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZCScrollerButton.m; sourceTree = "<group>"; };
+		BAF356231C7744A1007B560C /* XZCScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZCScrollView.h; sourceTree = "<group>"; };
+		BAF356241C7744A1007B560C /* XZCScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZCScrollView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +116,14 @@
 		BAECD3E01C414DD4001E3D0E /* TestScrollerView */ = {
 			isa = PBXGroup;
 			children = (
+				BAF3561A1C77394D007B560C /* UIView (Extension) */,
+				BAF3561E1C7744A1007B560C /* XZCScrollView */,
 				BAECD3E41C414DD4001E3D0E /* AppDelegate.h */,
 				BAECD3E51C414DD4001E3D0E /* AppDelegate.m */,
 				BAECD3E71C414DD4001E3D0E /* ViewController.h */,
 				BAECD3E81C414DD4001E3D0E /* ViewController.m */,
+				BAF356171C773413007B560C /* TestController.h */,
+				BAF356181C773413007B560C /* TestController.m */,
 				BAECD3EA1C414DD4001E3D0E /* Main.storyboard */,
 				BAECD3ED1C414DD4001E3D0E /* Assets.xcassets */,
 				BAECD3EF1C414DD4001E3D0E /* LaunchScreen.storyboard */,
@@ -138,6 +157,28 @@
 				BAECD4081C414DD4001E3D0E /* Info.plist */,
 			);
 			path = TestScrollerViewUITests;
+			sourceTree = "<group>";
+		};
+		BAF3561A1C77394D007B560C /* UIView (Extension) */ = {
+			isa = PBXGroup;
+			children = (
+				BAF3561B1C77394D007B560C /* UIView+Extension.h */,
+				BAF3561C1C77394D007B560C /* UIView+Extension.m */,
+			);
+			path = "UIView (Extension)";
+			sourceTree = "<group>";
+		};
+		BAF3561E1C7744A1007B560C /* XZCScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				BAF3561F1C7744A1007B560C /* NemoScrollerView.h */,
+				BAF356201C7744A1007B560C /* NemoScrollerView.m */,
+				BAF356211C7744A1007B560C /* XZCScrollerButton.h */,
+				BAF356221C7744A1007B560C /* XZCScrollerButton.m */,
+				BAF356231C7744A1007B560C /* XZCScrollView.h */,
+				BAF356241C7744A1007B560C /* XZCScrollView.m */,
+			);
+			path = XZCScrollView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,8 +312,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAECD3E91C414DD4001E3D0E /* ViewController.m in Sources */,
+				BAF356271C7744A1007B560C /* XZCScrollView.m in Sources */,
+				BAF356251C7744A1007B560C /* NemoScrollerView.m in Sources */,
+				BAF356191C773413007B560C /* TestController.m in Sources */,
 				BAECD3E61C414DD4001E3D0E /* AppDelegate.m in Sources */,
 				BAECD3E31C414DD4001E3D0E /* main.m in Sources */,
+				BAF356261C7744A1007B560C /* XZCScrollerButton.m in Sources */,
+				BAF3561D1C77394D007B560C /* UIView+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,10 +459,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TestScrollerView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nx.TestScrollerView;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -424,6 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = TestScrollerView/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = Nx.TestScrollerView;
@@ -498,6 +547,7 @@
 				BAECD40D1C414DD5001E3D0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAECD40E1C414DD5001E3D0E /* Build configuration list for PBXNativeTarget "TestScrollerViewTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +556,7 @@
 				BAECD4101C414DD5001E3D0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		BAECD4111C414DD5001E3D0E /* Build configuration list for PBXNativeTarget "TestScrollerViewUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +565,7 @@
 				BAECD4131C414DD5001E3D0E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
