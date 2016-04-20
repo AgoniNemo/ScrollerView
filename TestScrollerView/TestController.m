@@ -8,17 +8,50 @@
 
 #import "TestController.h"
 
-#define GMColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
 
-#define randomColor GMColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+@interface TestController ()<UITableViewDataSource,UITableViewDelegate>
+@property (nonatomic,strong) UITableView *tableView;
+@end
 
 @implementation TestController
 
 -(void)viewDidLoad
 {
+    self.view.backgroundColor = [UIColor orangeColor];
+    
+    [self.view addSubview:self.tableView];
+    
     [super viewDidLoad];
     
     self.view.backgroundColor = randomColor;
+}
+
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 20;
+}
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *cellID = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
+    }
+    cell.textLabel.text = [NSString stringWithFormat:@"测试数据%ld",indexPath.row];
+    
+    return cell;
+}
+
+-(UITableView *)tableView
+{
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0,SCREEN.size.width , SCREEN.size.height-64)];
+        _tableView.delegate = self;
+        _tableView.dataSource = self;
+    }
+    return _tableView;
 }
 
 @end

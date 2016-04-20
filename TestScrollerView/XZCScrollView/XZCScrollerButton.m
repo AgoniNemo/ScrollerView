@@ -18,7 +18,7 @@
 @interface XZCScrollerButton ()<UIScrollViewDelegate>
 {
     NSInteger _count;
-    
+    NSInteger _tag;
 }
 @property (nonatomic, assign) CGFloat viewWidth;                    //组件的宽度
 @property (nonatomic, assign) CGFloat viewHeight;                   //组件的高度
@@ -48,6 +48,8 @@
 }
 
 - (void)layoutSubviews{
+    
+    _tag = (_titles.count >= 5) ? 5 : _titles.count;
     [self customeData];
     [self createBottomLabels];
     [self createTopLables];
@@ -56,10 +58,9 @@
 
 -(void) setButtonPositionWithNumber:(CGFloat)position{
 
-//    NSLog(@"%f",position);
-    _bottomLine.x = position/5;
-    _heightLightView.x = position/5;
-    _heightTopView.x = -(position/5);
+    _bottomLine.x = position/_tag;
+    _heightLightView.x = position/_tag;
+    _heightTopView.x = -(position/_tag);
     
     [self scrollAnimation:position/rect.size.width];
 }
