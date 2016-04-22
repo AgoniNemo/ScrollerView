@@ -1,19 +1,19 @@
 //
-//  NemoScrollerView.m
+//  NemoSrollerController.m
 //  TestScrollerView
 //
-//  Created by Nemo on 16/2/17.
+//  Created by Nemo on 16/4/21.
 //  Copyright © 2016年 Nemo. All rights reserved.
 //
 
-#import "NemoScrollerView.h"
+#import "NemoSrollerController.h"
 #import "XZCScrollerButton.h"
 #import "XZCScrollView.h"
 
 
 #define rect [UIScreen mainScreen].bounds
 
-@interface NemoScrollerView ()<UIScrollViewDelegate>
+@interface NemoSrollerController ()<UIScrollViewDelegate>
 {
     CGFloat _y;
     BOOL isClick;
@@ -22,31 +22,27 @@
 @property (nonatomic,strong) XZCScrollView *scrollview;
 @end
 
-@implementation NemoScrollerView
+@implementation NemoSrollerController
 
--(instancetype)initWithFrame:(CGRect)frame
-{
-    if (self = [super initWithFrame:frame]) {
-        
-        [self createView];
-        
-        self.backgroundColor = [UIColor whiteColor];
-        
-    }
-    return self;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    
+    [self createView];
+
+    NSLog(@"%@",self.viewControllers);
 }
 -(void)createView{
     
-    _scroller = [[XZCScrollerButton alloc] initWithFrame:CGRectMake(0, 20, rect.size.width,30)];
+    _scroller = [[XZCScrollerButton alloc] initWithFrame:CGRectMake(0, 64, rect.size.width,30)];
     _scroller.backgroundHeightLightColor = [UIColor whiteColor];
     _scroller.titlesHeightLightColor = [UIColor redColor];
-    
+    _scroller.titles = self.titles;
     __weak typeof(self) ws = self;
     [_scroller setButtonClickBlock:^(NSInteger tag) {
         isClick = YES;
         [ws.scrollview setContentOffset:CGPointMake(tag*rect.size.width, 0) animated:YES];
     }];
-    [self addSubview:_scroller];
+    [self.view addSubview:_scroller];
     
     _y = 20+CGRectGetHeight(_scroller.frame);
     _scrollview = [[XZCScrollView alloc] initWithFrame:CGRectMake(0, _y+2, rect.size.width, rect.size.height-_y-2)];
@@ -54,18 +50,19 @@
     _scrollview.showsHorizontalScrollIndicator = NO;
     _scrollview.delegate = self;
     _scrollview.bounces = NO;
-    [self addSubview:_scrollview];
-
+    _scrollview.contentSize = CGSizeMake(self.titles.count*rect.size.width, _y);
+//    [self.view addSubview:_scrollview];
+    
 }
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
-//    NSLog(@"%s",__func__);
+    //    NSLog(@"%s",__func__);
     isClick = NO;
 }
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    NSLog(@"%s%@",__func__,NSStringFromCGPoint(scrollView.contentOffset));
+    //    NSLog(@"%s%@",__func__,NSStringFromCGPoint(scrollView.contentOffset));
     if (isClick) return;
     [_scroller setButtonPositionWithNumber:scrollView.contentOffset.x];
 }
@@ -76,13 +73,7 @@
     _scrollview.viewControllers = viewControllers;
 }
 
--(void)layoutSubviews{
 
-    [super layoutSubviews];
 
-    _scroller.titles = self.titles;
-    _scrollview.contentSize = CGSizeMake(self.titles.count*rect.size.width, _y);
-
-}
 
 @end

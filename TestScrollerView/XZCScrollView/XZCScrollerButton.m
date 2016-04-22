@@ -49,6 +49,8 @@
 
 - (void)layoutSubviews{
     
+    [super layoutSubviews];
+    
     _tag = (_titles.count >= 5) ? 5 : _titles.count;
     [self customeData];
     [self createBottomLabels];
@@ -173,6 +175,7 @@
         UILabel *tempLabel = [self createLabelWithTitlesIndex:i textColor:_titlesCustomeColor];
         [self.bottom addSubview:tempLabel];
         [_labelMutableArray addObject:tempLabel];
+        
     }
 }
 
@@ -194,9 +197,11 @@
     
     _heightTopView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, _viewWidth, _viewHeight)];
     
-    NSLog(@"_viewHeight:%f---_viewWidth:%f",_labelWidth,_viewWidth);
+    
     for (int i = 0; i < _titles.count; i ++) {
         UILabel *label = [self createLabelWithTitlesIndex:i textColor:_titlesHeightLightColor];
+        
+        NSLog(@"NSStringFromCG:%@",NSStringFromCGRect(label.frame));
         [_heightTopView addSubview:label];
     }
     [_heightLightView addSubview:_heightTopView];
@@ -256,7 +261,7 @@
 -(UIScrollView *)bottom
 {
     if (_bottom == nil) {
-        _bottom = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height+2)];
+        _bottom = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height+2)];
         _bottom.showsHorizontalScrollIndicator = NO;
         _bottom.delegate = self;
     }

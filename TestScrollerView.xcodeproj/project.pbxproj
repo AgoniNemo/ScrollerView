@@ -15,6 +15,7 @@
 		BAECD3F11C414DD4001E3D0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAECD3EF1C414DD4001E3D0E /* LaunchScreen.storyboard */; };
 		BAECD3FC1C414DD4001E3D0E /* TestScrollerViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAECD3FB1C414DD4001E3D0E /* TestScrollerViewTests.m */; };
 		BAECD4071C414DD4001E3D0E /* TestScrollerViewUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAECD4061C414DD4001E3D0E /* TestScrollerViewUITests.m */; };
+		BAEF72311CC92BA60069BE67 /* NemoSrollerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEF72301CC92BA60069BE67 /* NemoSrollerController.m */; };
 		BAF356191C773413007B560C /* TestController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF356181C773413007B560C /* TestController.m */; };
 		BAF3561D1C77394D007B560C /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF3561C1C77394D007B560C /* UIView+Extension.m */; };
 		BAF356251C7744A1007B560C /* NemoScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF356201C7744A1007B560C /* NemoScrollerView.m */; };
@@ -56,6 +57,8 @@
 		BAECD4021C414DD4001E3D0E /* TestScrollerViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TestScrollerViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAECD4061C414DD4001E3D0E /* TestScrollerViewUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestScrollerViewUITests.m; sourceTree = "<group>"; };
 		BAECD4081C414DD4001E3D0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAEF722F1CC92BA60069BE67 /* NemoSrollerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NemoSrollerController.h; sourceTree = "<group>"; };
+		BAEF72301CC92BA60069BE67 /* NemoSrollerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NemoSrollerController.m; sourceTree = "<group>"; };
 		BAF356171C773413007B560C /* TestController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestController.h; sourceTree = "<group>"; };
 		BAF356181C773413007B560C /* TestController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestController.m; sourceTree = "<group>"; };
 		BAF3561B1C77394D007B560C /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 		BAF3561E1C7744A1007B560C /* XZCScrollView */ = {
 			isa = PBXGroup;
 			children = (
+				BAEF722F1CC92BA60069BE67 /* NemoSrollerController.h */,
+				BAEF72301CC92BA60069BE67 /* NemoSrollerController.m */,
 				BAF3561F1C7744A1007B560C /* NemoScrollerView.h */,
 				BAF356201C7744A1007B560C /* NemoScrollerView.m */,
 				BAF356211C7744A1007B560C /* XZCScrollerButton.h */,
@@ -317,6 +322,7 @@
 				BAF356191C773413007B560C /* TestController.m in Sources */,
 				BAECD3E61C414DD4001E3D0E /* AppDelegate.m in Sources */,
 				BAECD3E31C414DD4001E3D0E /* main.m in Sources */,
+				BAEF72311CC92BA60069BE67 /* NemoSrollerController.m in Sources */,
 				BAF356261C7744A1007B560C /* XZCScrollerButton.m in Sources */,
 				BAF3561D1C77394D007B560C /* UIView+Extension.m in Sources */,
 			);

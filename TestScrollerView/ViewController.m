@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "NemoScrollerView.h"
 #import "TestController.h"
-
+#import "NemoSrollerController.h"
 @interface ViewController ()
 @property (nonatomic,strong) UIScrollView *bottom;
 @end
@@ -19,12 +19,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.hidesBottomBarWhenPushed = YES;
+#warning 头部的button会受这个影响而且导致坐标不对
+    self.navigationController.navigationBar.translucent = NO;
     
     NSArray *titles = @[@"推荐",@"银行",@"尼莫",@"尼莫",@"推荐",@"银行",@"推荐",@"银行"];
     NSMutableArray *views = [[NSMutableArray alloc] init];
     
-    NemoScrollerView *scroll = [[NemoScrollerView alloc] initWithFrame:CGRectMake(0, 64, SCREEN.size.width, SCREEN.size.height-64)];
+    NemoScrollerView *scroll = [[NemoScrollerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN.size.width, SCREEN.size.height)];
     scroll.titles = titles;
     for (int i = 0; i < titles.count; i ++) {
         TestController *vc = [[TestController alloc] init];
