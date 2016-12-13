@@ -37,18 +37,19 @@
 }
 -(void)createView{
     
-    _scroller = [[XZCScrollerButton alloc] initWithFrame:CGRectMake(0, 20, rect.size.width,30)];
+    _scroller = [[XZCScrollerButton alloc] initWithFrame:CGRectMake(0, 0, rect.size.width,40)];
+    
     _scroller.backgroundHeightLightColor = [UIColor whiteColor];
     _scroller.titlesHeightLightColor = [UIColor redColor];
     
     __weak typeof(self) ws = self;
     [_scroller setButtonClickBlock:^(NSInteger tag) {
         isClick = YES;
-        [ws.scrollview setContentOffset:CGPointMake(tag*rect.size.width, 0) animated:YES];
+        [ws.scrollview setContentOffset:CGPointMake(tag*rect.size.width, 0) animated:NO];
     }];
     [self addSubview:_scroller];
     
-    _y = 20+CGRectGetHeight(_scroller.frame);
+    _y = CGRectGetHeight(_scroller.frame);
     _scrollview = [[XZCScrollView alloc] initWithFrame:CGRectMake(0, _y+2, rect.size.width, rect.size.height-_y-2)];
     _scrollview.pagingEnabled = YES;
     _scrollview.showsHorizontalScrollIndicator = NO;

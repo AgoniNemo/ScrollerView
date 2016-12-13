@@ -39,7 +39,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
     }
-    cell.textLabel.text = [NSString stringWithFormat:@"测试数据%ld",indexPath.row];
+    cell.textLabel.text = [NSString stringWithFormat:@"%@%ld",self.text,indexPath.row];
     
     return cell;
 }

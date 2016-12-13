@@ -16,4 +16,6 @@
 
 @interface TestController : UIViewController
 
+@property (nonatomic,strong) NSString *text;
+
 @end

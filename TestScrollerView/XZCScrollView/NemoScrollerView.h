@@ -13,4 +13,13 @@
 @property (nonatomic) NSArray *titles;
 
 @property (nonatomic,strong) NSArray *viewControllers;
+
+@property (nonatomic,assign) CGFloat lineHeight;
+
+@property (nonatomic,strong) UIColor *lineColor;
+
+@property (nonatomic,assign) CGFloat textFont;
+
+@property (nonatomic,strong) UIColor *textColor;
+
 @end

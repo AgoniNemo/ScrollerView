@@ -11,7 +11,7 @@
 
 #define rect [UIScreen mainScreen].bounds
 
-#define DEFAULT_TITLES_FONT 20.0f
+#define DEFAULT_TITLES_FONT 16.0f
 #define DEFAULT_DURATION .7f
 #define NUMBER 4
 
@@ -64,7 +64,9 @@
     _heightLightView.x = position/_tag;
     _heightTopView.x = -(position/_tag);
     
-    [self scrollAnimation:position/rect.size.width];
+    [self scrollAnimation:position/rect.size.width completion:^(BOOL finished) {
+        
+    }];
 }
 
 -(void) setButtonOnClickBlock: (ButtonOnClickBlock) block {
@@ -78,21 +80,27 @@
         _buttonClick = block;
     }
 }
--(void)scrollAnimation:(NSInteger)tag{
+-(void)scrollAnimation:(NSInteger)tag completion:(void (^ __nullable)(BOOL finished))completion{
 
 //    NSLog(@"%ld---count:%ld",tag,_count);
     
+    CGPoint point = CGPointMake(0, 0);
+    
     if (_count-(tag+1) >= 2 && tag >= 3) {
-     
-        [_bottom setContentOffset:CGPointMake(((tag+1)-3)*_labelWidth, 0) animated:YES];
+        
+        point = CGPointMake(((tag+1)-3)*_labelWidth, 0);
         
 //        NSLog(@"tag:%ld",tag);
     }else{
         if (tag > 5) {
             return;
         }
-        [_bottom setContentOffset:CGPointMake(0, 0) animated:YES];
     }
+    [_bottom setContentOffset:point animated:YES];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        completion(YES);
+    });
     
 }
 
@@ -201,7 +209,7 @@
     for (int i = 0; i < _titles.count; i ++) {
         UILabel *label = [self createLabelWithTitlesIndex:i textColor:_titlesHeightLightColor];
         
-        NSLog(@"NSStringFromCG:%@",NSStringFromCGRect(label.frame));
+//        NSLog(@"NSStringFromCG:%@",NSStringFromCGRect(label.frame));
         [_heightTopView addSubview:label];
     }
     [_heightLightView addSubview:_heightTopView];
@@ -241,7 +249,7 @@
         _buttonClick(sender.tag);
     }
     
-    [self scrollAnimation:sender.tag];
+    
     
     CGRect frame = [self countCurrentRectWithIndex:sender.tag];
     CGRect changeFrame = [self countCurrentRectWithIndex:-sender.tag];
@@ -252,9 +260,11 @@
         _heightTopView.frame = changeFrame;
         _bottomLine.frame = CGRectMake(sender.tag*_labelWidth, _viewHeight, _labelWidth, 2);
     } completion:^(BOOL finished) {
-        [weak_self shakeAnimationForView:_heightColoreView];
+//        [weak_self shakeAnimationForView:_heightColoreView];
 #warning 给bottom加后动画效果快速点击会出现闪现,后期处理
-//        [weak_self shakeAnimationForView:_bottomLine];
+        [weak_self scrollAnimation:sender.tag completion:^(BOOL finished) {
+            [weak_self shakeAnimationForView:_bottomLine];
+        }];
     }];
 }
 
@@ -276,6 +286,7 @@
 - (void)shakeAnimationForView:(UIView *) view {
     CALayer *viewLayer = view.layer;
     CGPoint position = viewLayer.position;
+    NSLog(@"position:%@",NSStringFromCGPoint(position));
     CGPoint x = CGPointMake(position.x + 1, position.y);
     CGPoint y = CGPointMake(position.x - 1, position.y);
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];

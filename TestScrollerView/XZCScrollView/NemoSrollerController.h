@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^titleClick)();
+
 @interface NemoSrollerController : UIViewController
 
 @property (nonatomic) NSArray *titles;
 
 @property (nonatomic,strong) NSArray *viewControllers;
+
+@property (nonatomic,copy) titleClick selectAction;
+
+@property (nonatomic ,assign) NSInteger index;
 
 @end
