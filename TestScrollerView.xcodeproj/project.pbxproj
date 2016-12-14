@@ -21,6 +21,7 @@
 		BAF356251C7744A1007B560C /* NemoScrollerView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF356201C7744A1007B560C /* NemoScrollerView.m */; };
 		BAF356261C7744A1007B560C /* XZCScrollerButton.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF356221C7744A1007B560C /* XZCScrollerButton.m */; };
 		BAF356271C7744A1007B560C /* XZCScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF356241C7744A1007B560C /* XZCScrollView.m */; };
+		BAFFFA6D1E01250F009827B9 /* XZCScrollerController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAFFFA6C1E01250F009827B9 /* XZCScrollerController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,8 @@
 		BAF356221C7744A1007B560C /* XZCScrollerButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZCScrollerButton.m; sourceTree = "<group>"; };
 		BAF356231C7744A1007B560C /* XZCScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZCScrollView.h; sourceTree = "<group>"; };
 		BAF356241C7744A1007B560C /* XZCScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZCScrollView.m; sourceTree = "<group>"; };
+		BAFFFA6B1E01250F009827B9 /* XZCScrollerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZCScrollerController.h; sourceTree = "<group>"; };
+		BAFFFA6C1E01250F009827B9 /* XZCScrollerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZCScrollerController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +179,8 @@
 			children = (
 				BAEF722F1CC92BA60069BE67 /* NemoSrollerController.h */,
 				BAEF72301CC92BA60069BE67 /* NemoSrollerController.m */,
+				BAFFFA6B1E01250F009827B9 /* XZCScrollerController.h */,
+				BAFFFA6C1E01250F009827B9 /* XZCScrollerController.m */,
 				BAF3561F1C7744A1007B560C /* NemoScrollerView.h */,
 				BAF356201C7744A1007B560C /* NemoScrollerView.m */,
 				BAF356211C7744A1007B560C /* XZCScrollerButton.h */,
@@ -317,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BAECD3E91C414DD4001E3D0E /* ViewController.m in Sources */,
+				BAFFFA6D1E01250F009827B9 /* XZCScrollerController.m in Sources */,
 				BAF356271C7744A1007B560C /* XZCScrollView.m in Sources */,
 				BAF356251C7744A1007B560C /* NemoScrollerView.m in Sources */,
 				BAF356191C773413007B560C /* TestController.m in Sources */,

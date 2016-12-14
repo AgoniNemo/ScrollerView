@@ -1,14 +1,14 @@
 //
-//  NemoScrollerView.h
+//  XZCScrollerController.h
 //  TestScrollerView
 //
-//  Created by Nemo on 16/2/17.
+//  Created by Mjwon on 2016/12/14.
 //  Copyright © 2016年 Nemo. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface NemoScrollerView : UIView
+@interface XZCScrollerController : UIViewController
 
 @property (nonatomic) NSArray *titles;
 

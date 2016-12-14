@@ -58,7 +58,7 @@
     [self createTopButtons];
 }
 
--(void) setButtonPositionWithNumber:(CGFloat)position{
+-(void) setButtonPositionWithNumber:(CGFloat)position {
 
     _bottomLine.x = position/_tag;
     _heightLightView.x = position/_tag;
@@ -104,6 +104,25 @@
     
 }
 
+-(void)setTitles:(NSArray *)titles
+{
+    _titles = titles;
+    
+    if (_labelMutableArray == nil) {
+        _labelMutableArray = [[NSMutableArray alloc] initWithCapacity:_titles.count];
+    }
+    _count = _titles.count;
+    
+    _labelWidth = _viewWidth / _count;
+    
+    [self addSubview:self.bottom];
+    
+    if (_titles.count > NUMBER) {
+        _labelWidth = _viewWidth / (NUMBER+1);
+    }
+    self.bottom.contentSize = CGSizeMake(_labelWidth*_count, 0);
+}
+
 /**
  *  提供默认值
  */
@@ -128,19 +147,6 @@
         _titlesFont = [UIFont systemFontOfSize:DEFAULT_TITLES_FONT];
     }
     
-    if (_labelMutableArray == nil) {
-        _labelMutableArray = [[NSMutableArray alloc] initWithCapacity:_titles.count];
-    }
-    _count = _titles.count;
-    
-    _labelWidth = _viewWidth / _count;
-    
-    [self addSubview:self.bottom];
-    
-    if (_titles.count > NUMBER) {
-        _labelWidth = _viewWidth / (NUMBER+1);
-    }
-    self.bottom.contentSize = CGSizeMake(_labelWidth*_count, 0);
 }
 
 /**
@@ -194,13 +200,14 @@
     //label层上的view
     CGRect heightLightViewFrame = CGRectMake(0, 0, _labelWidth, _viewHeight);
     _heightLightView = [[UIView alloc] initWithFrame:heightLightViewFrame];
-#warning 设置超出_heightLightView的子VIEW不显示
     _heightLightView.clipsToBounds = YES;
     
     //动画元素
     _heightColoreView = [[UIView alloc] initWithFrame:heightLightViewFrame];
     _heightColoreView.backgroundColor = _backgroundHeightLightColor;
-    _heightColoreView.layer.cornerRadius = 20;
+    if (_radiusBtn > 0) {
+        _heightColoreView.layer.cornerRadius = _radiusBtn;
+    }
     [_heightLightView addSubview:_heightColoreView];
     
     _heightTopView = [[UIView alloc] initWithFrame: CGRectMake(0, 0, _viewWidth, _viewHeight)];
@@ -260,10 +267,11 @@
         _heightTopView.frame = changeFrame;
         _bottomLine.frame = CGRectMake(sender.tag*_labelWidth, _viewHeight, _labelWidth, 2);
     } completion:^(BOOL finished) {
-//        [weak_self shakeAnimationForView:_heightColoreView];
+        
 #warning 给bottom加后动画效果快速点击会出现闪现,后期处理
         [weak_self scrollAnimation:sender.tag completion:^(BOOL finished) {
-            [weak_self shakeAnimationForView:_bottomLine];
+//            [weak_self shakeAnimationForView:weak_self.heightColoreView];
+//            [weak_self shakeAnimationForView:weak_self.bottomLine];
         }];
     }];
 }
@@ -287,12 +295,12 @@
     CALayer *viewLayer = view.layer;
     CGPoint position = viewLayer.position;
     NSLog(@"position:%@",NSStringFromCGPoint(position));
-    CGPoint x = CGPointMake(position.x + 1, position.y);
-    CGPoint y = CGPointMake(position.x - 1, position.y);
+    CGPoint x1 = CGPointMake(position.x + 1, position.y);
+    CGPoint x2 = CGPointMake(position.x - 1, position.y);
     CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"position"];
     [animation setTimingFunction:[CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault]];
-    [animation setFromValue:[NSValue valueWithCGPoint:x]];
-    [animation setToValue:[NSValue valueWithCGPoint:y]];
+    [animation setFromValue:[NSValue valueWithCGPoint:x1]];
+    [animation setToValue:[NSValue valueWithCGPoint:x2]];
     [animation setAutoreverses:YES];
     [animation setDuration:.06];
     [animation setRepeatCount:3];

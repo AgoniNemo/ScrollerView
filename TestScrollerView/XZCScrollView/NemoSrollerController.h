@@ -18,6 +18,4 @@ typedef void(^titleClick)();
 
 @property (nonatomic,copy) titleClick selectAction;
 
-@property (nonatomic ,assign) NSInteger index;
-
 @end

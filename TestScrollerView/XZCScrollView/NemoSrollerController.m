@@ -32,12 +32,6 @@
     NSLog(@"%@",self.viewControllers);
 }
 
--(void)setIndex:(NSInteger)index
-{
-    _index = index;
-    
-}
-
 -(void)createView{
     
     self.scroller.titles = self.titles;
@@ -51,7 +45,7 @@
     }];
     [self.view addSubview:self.scroller];
     
-    _y = 20+CGRectGetHeight(_scroller.frame);
+    _y = CGRectGetMaxY(self.scroller.frame);
     _scrollview = [[XZCScrollView alloc] initWithFrame:CGRectMake(0, _y+2, rect.size.width, rect.size.height-_y-2)];
     _scrollview.pagingEnabled = YES;
     _scrollview.showsHorizontalScrollIndicator = NO;

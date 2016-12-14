@@ -56,8 +56,20 @@
     _scrollview.delegate = self;
     _scrollview.bounces = NO;
     [self addSubview:_scrollview];
-
 }
+-(void)setSelectPage:(NSInteger)selectPage
+{
+    _selectPage = selectPage;
+    CGFloat x = 375*selectPage;
+    isClick = YES;
+    __weak typeof(self) ws = self;
+    [UIView animateWithDuration:3 animations:^{
+        [ws.scroller setButtonPositionWithNumber:x];
+    }];
+    
+    [_scrollview setContentOffset:CGPointMake(x, 0) animated:NO];
+}
+
 -(void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
 {
 //    NSLog(@"%s",__func__);
@@ -66,7 +78,7 @@
 
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-//    NSLog(@"%s%@",__func__,NSStringFromCGPoint(scrollView.contentOffset));
+    NSLog(@"%s%@",__func__,NSStringFromCGPoint(scrollView.contentOffset));
     if (isClick) return;
     [_scroller setButtonPositionWithNumber:scrollView.contentOffset.x];
 }

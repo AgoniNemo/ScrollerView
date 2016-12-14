@@ -20,7 +20,7 @@ typedef void(^ButtonClickBlock)(NSInteger tag);
 @property (nonatomic, strong) UIFont *titlesFont;                   //标题的字号
 @property (nonatomic, assign) CGFloat duration;                     //运动时间
 @property (nonatomic, assign) NSInteger number;                     //每行的个数（默认5个）
-
+@property (nonatomic, assign) CGFloat radiusBtn;                     //边框的圆角
 
 -(void) setButtonOnClickBlock: (ButtonOnClickBlock) block;
 -(void) setButtonClickBlock: (ButtonClickBlock) block;
