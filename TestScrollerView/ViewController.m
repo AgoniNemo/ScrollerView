@@ -30,24 +30,24 @@
     
     indext = 0;
     
-    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"next" style:UIBarButtonItemStylePlain target:self action:@selector(leftAction)];
-    self.navigationItem.leftBarButtonItem = item;
+//    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:@"next" style:UIBarButtonItemStylePlain target:self action:@selector(leftAction)];
+//    self.navigationItem.leftBarButtonItem = item;
+//    
+//    
+//    XZCScrollerController *vc = [[XZCScrollerController alloc] init];
+//    NSArray *titles = @[@"消息",@"银行",@"尼莫",@"时光",@"KTV",@"通讯录",@"推荐",@"银行"];
+//    NSMutableArray *views = [[NSMutableArray alloc] init];
+//    
+//    for (int i = 0; i < titles.count; i ++) {
+//        TestController *vc = [[TestController alloc] init];
+//        vc.text = titles[i];
+//        [views addObject:vc];
+//    }
+//    vc.viewControllers = views;
+//    vc.titles = titles;
+//    [self.navigationController pushViewController:vc animated:YES];
     
-    
-    XZCScrollerController *vc = [[XZCScrollerController alloc] init];
-    NSArray *titles = @[@"消息",@"银行",@"尼莫",@"时光",@"KTV",@"通讯录",@"推荐",@"银行"];
-    NSMutableArray *views = [[NSMutableArray alloc] init];
-    
-    for (int i = 0; i < titles.count; i ++) {
-        TestController *vc = [[TestController alloc] init];
-        vc.text = titles[i];
-        [views addObject:vc];
-    }
-    vc.viewControllers = views;
-    vc.titles = titles;
-    [self.navigationController pushViewController:vc animated:YES];
-    
-//    [self create];
+    [self create];
 }
 
 -(void)create{
@@ -59,6 +59,7 @@
     NSMutableArray *views = [[NSMutableArray alloc] init];
     
     _scroll = [[NemoScrollerView alloc] initWithFrame:CGRectMake(0, 0, SCREEN.size.width, SCREEN.size.height)];
+    _scroll.viewController  = self;
     _scroll.titles = titles;
     for (int i = 0; i < titles.count; i ++) {
         TestController *vc = [[TestController alloc] init];

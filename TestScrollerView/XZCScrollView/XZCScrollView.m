@@ -26,7 +26,11 @@
     for (int i = 0; i < viewControllers.count; i ++) {
         
         UIViewController *vc = viewControllers[i];
-        vc.view.frame = CGRectMake(i*375, 0, self.bounds.size.width, self.bounds.size.height);
+        vc.view.frame = CGRectMake(i*rect.size.width, 0, self.bounds.size.width, self.bounds.size.height);
+        if (self.viewController == nil) {
+            NSLog(@"%s",__func__);
+        }
+        [self.viewController addChildViewController:vc];
         [self addSubview:vc.view];
     }
 }

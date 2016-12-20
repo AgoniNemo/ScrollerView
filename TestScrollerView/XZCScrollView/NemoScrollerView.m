@@ -11,8 +11,6 @@
 #import "XZCScrollView.h"
 
 
-#define rect [UIScreen mainScreen].bounds
-
 @interface NemoScrollerView ()<UIScrollViewDelegate>
 {
     CGFloat _y;
@@ -51,16 +49,22 @@
     
     _y = CGRectGetHeight(_scroller.frame);
     _scrollview = [[XZCScrollView alloc] initWithFrame:CGRectMake(0, _y+2, rect.size.width, rect.size.height-_y-2)];
+    
     _scrollview.pagingEnabled = YES;
     _scrollview.showsHorizontalScrollIndicator = NO;
     _scrollview.delegate = self;
     _scrollview.bounces = NO;
     [self addSubview:_scrollview];
 }
+-(void)setViewController:(UIViewController *)viewController
+{
+    _viewController = viewController;
+    _scrollview.viewController = viewController;
+}
 -(void)setSelectPage:(NSInteger)selectPage
 {
     _selectPage = selectPage;
-    CGFloat x = 375*selectPage;
+    CGFloat x = rect.size.width*selectPage;
     isClick = YES;
     __weak typeof(self) ws = self;
     [UIView animateWithDuration:3 animations:^{

@@ -9,8 +9,6 @@
 #import "XZCScrollerButton.h"
 #import "UIView+Extension.h"
 
-#define rect [UIScreen mainScreen].bounds
-
 #define DEFAULT_TITLES_FONT 16.0f
 #define DEFAULT_DURATION .7f
 #define NUMBER 4
@@ -64,7 +62,7 @@
     _heightLightView.x = position/_tag;
     _heightTopView.x = -(position/_tag);
     
-    [self scrollAnimation:position/rect.size.width completion:^(BOOL finished) {
+    [self scrollAnimation:position/_viewWidth completion:^(BOOL finished) {
         
     }];
 }
@@ -108,19 +106,7 @@
 {
     _titles = titles;
     
-    if (_labelMutableArray == nil) {
-        _labelMutableArray = [[NSMutableArray alloc] initWithCapacity:_titles.count];
-    }
-    _count = _titles.count;
     
-    _labelWidth = _viewWidth / _count;
-    
-    [self addSubview:self.bottom];
-    
-    if (_titles.count > NUMBER) {
-        _labelWidth = _viewWidth / (NUMBER+1);
-    }
-    self.bottom.contentSize = CGSizeMake(_labelWidth*_count, 0);
 }
 
 /**
@@ -146,7 +132,19 @@
     if (_titlesFont == nil) {
         _titlesFont = [UIFont systemFontOfSize:DEFAULT_TITLES_FONT];
     }
+    if (_labelMutableArray == nil) {
+        _labelMutableArray = [[NSMutableArray alloc] initWithCapacity:_titles.count];
+    }
+    _count = _titles.count;
     
+    _labelWidth = _viewWidth / _count;
+    
+    [self addSubview:self.bottom];
+    
+    if (_titles.count > NUMBER) {
+        _labelWidth = _viewWidth / (NUMBER+1);
+    }
+    self.bottom.contentSize = CGSizeMake(_labelWidth*_count, 0);
 }
 
 /**

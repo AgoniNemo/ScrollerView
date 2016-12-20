@@ -44,6 +44,16 @@
     return cell;
 }
 
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    UIViewController *vc = [[UIViewController alloc] init];
+    
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    
+}
 -(UITableView *)tableView
 {
     if (_tableView == nil) {

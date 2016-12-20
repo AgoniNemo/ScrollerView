@@ -12,6 +12,8 @@
 
 @property (nonatomic) NSArray *titles;
 
+@property (nonatomic,strong) UIViewController *viewController;
+
 @property (nonatomic,strong) NSArray *viewControllers;
 
 @property (nonatomic,assign) CGFloat lineHeight;
